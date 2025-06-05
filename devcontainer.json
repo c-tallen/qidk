@@ -1,0 +1,28 @@
+{
+  "name": "Qualcomm AI Runtimes Dev",
+  "runArgs": [
+    "--platform=linux/amd64",
+    "--network=host",
+    "--add-host=host.docker.internal:host-gateway"
+  ],
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "..",
+    "args": {
+      // This version is hardcoded for now
+      "QAIRT_VERSION": "2.34.0.250424"
+    },
+    "options": [
+      "--progress=plain",
+      "--platform=linux/amd64"
+    ]
+  },
+  "postCreateCommand": "echo '[✓] Dev‑container ready. Enjoy Software Project!' && cp -f .devcontainer/custom_bash.sh /home/vscode/.bashrc",  "remoteUser": "vscode",
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-python.python"
+  ],
+  "settings": { 
+    "terminal.integrated.defaultProfile.linux": "bash"
+  }
+}
